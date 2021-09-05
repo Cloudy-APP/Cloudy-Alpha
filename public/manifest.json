@@ -1,0 +1,22 @@
+{
+  "name": "Mateusz Słotwiński",
+  "short_name": "Mateusz Słotwiński",
+  "description": "My personal webpage",
+  "lang": "en",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#00647d",
+  "icons": [
+    {
+      "src": "./img/icons/icon512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/icons/icon192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "background_color": "#EBEAED"
+}
