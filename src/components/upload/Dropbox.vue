@@ -9,7 +9,6 @@
         <div class="dropimg"></div>
         <p>Upuść pliki tutaj!</p>
     </section>
-    <p>lub wybierz je z urządzenia</p>
 </template>
 
 <script lang="ts">
@@ -46,7 +45,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/main.scss';
+@import '../../styles/main.scss';
 
 .droparea {
     display: flex;
@@ -80,7 +79,7 @@ export default defineComponent({
 .dropimg {
     padding:29.625px 37.875px;
     background-size:cover;
-    background-image:url("../assets/drop.png");
+    background-image:url("../../assets/drop.png");
 }
 
 </style>
