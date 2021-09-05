@@ -15,17 +15,18 @@
         ref="file"
         hidden
         />
-
+      </label>
+    </div>
+    <div>
       <span class="file-name">
         {{this.file.name }}
       </span>
-      </label>
     </div>
     <Submit/>
   </form>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import { defineComponent } from 'vue'
 import axios from 'axios'
 
@@ -37,7 +38,9 @@ export default defineComponent({
   },
   data () {
     return {
-      file: ''
+      file: '',
+      message: '',
+      error: false
     }
   },
   methods: {
@@ -45,14 +48,21 @@ export default defineComponent({
       // eslint-disable-next-line
       this.file = this.$refs.file.files[0]
       console.log(this.file)
+      this.message = ''
+      this.error = false
     },
     async sendFile () {
       const formData = new FormData()
       formData.append('file', this.file)
       try {
-        await axios.post('/api/upload', formData)
+        await axios.post('http://localhost:80/api/files/upload', formData)
+        this.message = 'File has been uploaded'
+        this.file = ''
+        this.error = false
       } catch (err) {
         console.log(err)
+        this.message = 'Something went wrong'
+        this.error = false
       }
     }
   }
@@ -79,9 +89,8 @@ label {
 .file-name {
     display:block;
     padding:10px;
-    color:$background;
+    color:$black;
     font-size:13.5px;
-    font-weight: 300;
 }
 
 </style>
