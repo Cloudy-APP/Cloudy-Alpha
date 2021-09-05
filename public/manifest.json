@@ -1,7 +1,7 @@
 {
-  "name": "Mateusz Słotwiński",
-  "short_name": "Mateusz Słotwiński",
-  "description": "My personal webpage",
+  "name": "Cloudy",
+  "short_name": "Cloudy",
+  "description": "Simple sharing system",
   "lang": "en",
   "start_url": "/",
   "display": "standalone",
@@ -18,5 +18,5 @@
       "type": "image/png"
     }
   ],
-  "background_color": "#EBEAED"
+  "background_color": "#ebebeb"
 }
