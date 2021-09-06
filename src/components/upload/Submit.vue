@@ -17,16 +17,14 @@ export default defineComponent({
 @import '../../styles/main.scss';
 
 button {
-    width:300px;
-    max-width:95vw;
-    margin:10px;
-    border:none;
-    background-color:$main;
-    font-size:20px;
-    padding:10px;
-    border-radius:10px;
-    cursor:pointer;
-    color:$background;
+  margin:10px;
+  border:none;
+  background-color:$main;
+  font-size:18px;
+  padding:10px;
+  border-radius:10px;
+  cursor:pointer;
+  color:$background;
 }
 
 </style>
