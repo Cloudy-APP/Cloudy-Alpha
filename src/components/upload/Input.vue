@@ -49,12 +49,24 @@
       </div>
         <a @click.prevent="files.splice(index, 1);uploadFiles.splice(index, 1)" class="delete"></a>
       </div>
-      </div>
     </div>
+  </div>
 
     <div v-if="message">
       <span :class="`message ${error ? 'is-danger' : 'is-success'}`">{{message}}</span>
     </div>
+
+     <div class="filelist">
+      <div class="listitem" v-for="file in uploaded" :key="file">
+      <div>
+        {{file.originalname}}
+      </div>
+      <a :href="domain + '/files/' + file.filename" target="_blank" class="finallyyyyy">
+        Get link
+      </a>
+    </div>
+     </div>
+
   </form>
 </template>
 
@@ -62,6 +74,7 @@
 import { defineComponent } from 'vue'
 import axios from 'axios'
 import _ from 'lodash'
+import { domain } from '../../static/data.ts'
 
 import Submit from './Submit.vue'
 
@@ -73,10 +86,12 @@ export default defineComponent({
     return {
       files: [],
       uploadFiles: [],
+      uploaded: [],
       message: '',
       error: false,
       uploading: false,
-      isDragged: false
+      isDragged: false,
+      domain
     }
   },
   methods: {
@@ -123,7 +138,7 @@ export default defineComponent({
       })
 
       try {
-        await axios.post('http://localhost:80/api/files/upload', formData)
+        await axios.post(this.domain + '/api/files/upload', formData).then(response => (this.uploaded = this.uploaded.concat(response.data.files)))
         this.message = 'Files has been uploaded'
         this.files = []
         this.uploadFiles = []
@@ -284,6 +299,15 @@ label {
 
 .draganddrop {
   filter:brightness(0.8);
+}
+
+.finallyyyyy {
+  text-decoration: none;
+  background-color:#a4bcc2;
+  color:#00647d;
+  font-weight: 600;
+  padding:5px 10px;
+  border-radius:5px;
 }
 
 </style>

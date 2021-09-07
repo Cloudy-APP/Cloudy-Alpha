@@ -50,4 +50,8 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+button {
+  outline: none;
+}
 </style>
